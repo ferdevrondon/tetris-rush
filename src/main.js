@@ -16,7 +16,7 @@ canvas.height = BLOCK_SIZE * BOARD_HEIGHT;
 // Scale the context to match the block size
 context.scale(BLOCK_SIZE, BLOCK_SIZE);
 const board = createBoard(BOARD_WIDTH, BOARD_HEIGHT);
-// game loop
+
 function createBoard(width, height) {
   return Array(height)
     .fill(null)
@@ -96,7 +96,7 @@ function update(time = 0) {
 function draw3DBlock(x, y, colorSet, withShadow = false) {
   const { main, light, dark } = colorSet;
 
-  // Shadow block
+
   if (withShadow) {
     context.save();
     context.shadowColor = "rgba(0, 0, 0, 0.4)";
@@ -129,19 +129,19 @@ function draw3DBlock(x, y, colorSet, withShadow = false) {
 }
 
 function draw() {
-  // gradient background
+
   const gradient = context.createLinearGradient(0, 0, 0, BOARD_HEIGHT);
 
-  gradient.addColorStop(0, "#7b7b88");
-  gradient.addColorStop(0.5, "#888896");
-  gradient.addColorStop(1, "#9393a2");
+  gradient.addColorStop(0, "#6e9bb2");
+  gradient.addColorStop(0.5, "#7bacc4");
+  gradient.addColorStop(1, "#9acce4");
 
   context.fillStyle = gradient;
 
    context.fill();
   context.fillRect(0, 0, BOARD_WIDTH, BOARD_HEIGHT);
 
-  // draw the board with 3D effect
+
   board.forEach((row, y) => {
     row.forEach((block, x) => {
       if (block !== 0) {
@@ -151,7 +151,7 @@ function draw() {
     });
   });
 
-  // draw the current piece with 3D effect
+
   piece.shape.forEach((row, y) => {
     row.forEach((block, x) => {
       if (block === 1) {
@@ -162,11 +162,11 @@ function draw() {
     });
   });
 
-  // Draw the shadow of the current piece, preview
+
   drawPieceShadow();
 }
 
-// Function to draw the shadow of the current piece
+
 function drawPieceShadow() {
   let shadowY = piece.position.y;
 
@@ -183,7 +183,6 @@ function drawPieceShadow() {
           const shadowX = piece.position.x + x;
           const currentShadowY = shadowY + y;
 
-          // draw the shadow block subtlely
           context.save();
           context.globalAlpha = 0.3;
           context.fillStyle = PIECE_COLORS[piece.colorIndex].main;
@@ -270,7 +269,7 @@ function solidifyPiece() {
   piece.shape = PIECES[randomIndex];
   piece.colorIndex = randomIndex;
 
-  // Check for game over condition
+
   if (collisionDetected()) {
     alert("¡Game Over!");
     board.forEach((row) => row.fill(0));
@@ -293,7 +292,7 @@ function clearLines() {
   });
 }
 
-update();
+
 
 document.addEventListener("click", () => {
   update();
@@ -306,5 +305,5 @@ document.addEventListener("click", () => {
 
 //pendant
 // add more styles to the canvas
-canvas.style.border = "10px solid #4adcf3";
+canvas.style.border = "13px solid #2e154aab";
 // add score display

@@ -36,6 +36,7 @@ h1 {
   margin: 0 auto;
   padding: 2rem;
   text-align: center;
+  height: calc(100vh - 94px);
 }
 
 .logo {
@@ -98,11 +99,13 @@ body{
   display:grid;
   place-content:center;
   height: 100vh;
+  background-image:url('public/back.jpg');
+  background-size: cover;
 }
 
 section{
   position:absolute;
-  background-color: #7b8688;
+  background-color: #100a19;
   width: 100vw;
   height: 100vh;
   top:0;
@@ -120,10 +123,14 @@ section{
   .start-button{
   cursor:pointer;
   padding: 1rem 2rem;
-  background-color: #646cff;
+  background-color: #ffe664;
   border: solid 5px #d3d4e6;
   box-shadow: #213547;
+  color: #2e154a;
   }
 
+}
+canvas{
+  height: 100%;
 }
 /* 2a0e80 */
