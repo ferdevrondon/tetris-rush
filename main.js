@@ -309,7 +309,7 @@ document.addEventListener("click", () => {
   update();
   document.querySelector("section").remove();
 
-  const audio = new window.Audio("./tetris.mp3");
+  const audio = new window.Audio("./public/tetris.mp3");
   audio.volume = 0.3;
   audio.play();
 });
