@@ -131,6 +131,27 @@ section{
 
 }
 canvas{
-  height: 100%;
+  display: block;
+  max-width: 100vw;
+  max-height: 100vh;
+  width: 100%;
+  height: auto;
+  margin: 0 auto;
+}
+
+@media (max-width: 768px) {
+  body{
+    height: 100vh;
+    padding: 0.5rem;
+    box-sizing: border-box;
+  }
+
+  #app{
+    padding: 1rem;
+  }
+
+  section{
+    font-size: 1.1rem;
+  }
 }
 /* 2a0e80 */

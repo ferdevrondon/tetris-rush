@@ -1,12 +1,23 @@
-import "./style.css";
+
 
 // Initialize the canvas and context
 const canvas = document.querySelector("canvas");
 const context = canvas.getContext("2d");
 
-const BLOCK_SIZE = 25;
 const BOARD_WIDTH = 20;
 const BOARD_HEIGHT = 40;
+
+// Calculate block size based on current viewport so the board fits on screen
+const viewportWidth = window.innerWidth;
+const viewportHeight = window.innerHeight;
+const maxBoardWidthPx = viewportWidth * 0.9;
+const maxBoardHeightPx = viewportHeight * 0.9;
+
+let BLOCK_SIZE = Math.floor(
+  Math.min(maxBoardWidthPx / BOARD_WIDTH, maxBoardHeightPx / BOARD_HEIGHT)
+);
+
+if (BLOCK_SIZE < 1) BLOCK_SIZE = 1;
 
 let score = 0;
 // Set the canvas size based on the block size and board dimensions
